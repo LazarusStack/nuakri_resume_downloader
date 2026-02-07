@@ -4,6 +4,15 @@ import os
 import tempfile
 import shutil
 import download_resumes
+import subprocess
+
+# Auto-install Playwright browsers for cloud deployment
+try:
+    import playwright
+    # Simple check if chromium is available
+    subprocess.run(["playwright", "install", "chromium"], check=True)
+except Exception as e:
+    print(f"Playwright browser installation failed: {e}")
 
 st.set_page_config(page_title="Naukri Resume Downloader", layout="wide")
 
